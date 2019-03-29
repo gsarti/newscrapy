@@ -1,8 +1,8 @@
 # Newscrapy [![Build Status](https://travis-ci.org/gsarti/newscrapy.svg?branch=master)](https://travis-ci.org/gsarti/newscrapy)
 
-### Batch scrape articles from online newspaper archives
+## Batch scrape articles from online newspaper archives
 
-#### A quick overview
+### A quick overview
 
 The purpose of this tool is to enable quick and precise extractions of large sets of newspaper articles from online archives, to enable various language-related tasks. See the [Motivation behind the project](#motivation-behind-the-project) section for more info.
 
@@ -10,7 +10,7 @@ The purpose of this tool is to enable quick and precise extractions of large set
 
 * [La Repubblica](repubblica.it) news scraping is up and running!
 
-#### Setup
+### Setup
 
 The dependencies of the project are the following:
 
@@ -25,7 +25,7 @@ BeautifulSoup (for scraping)
 
 Simply run `pip install -r requirements.txt` to install all the dependencies automatically.
 
-#### How to use
+### How to use
 
 As for now, three modes of execution are supported:
 
@@ -51,7 +51,7 @@ python run.py 8-march-page-2-articles.csv LaRepubblica 8 3 2019 2
 python run.py march-articles.csv LaRepubblica 1 3 2019 1 4 2019
 ```
 
-#### Motivation behind the project
+### Motivation behind the project
 
 While very effective article scraping tools already exist (most notably the [Newspaper3k](https://github.com/codelucas/newspaper) library by codelucas), they are mostly specialized in the scraping of single articles, using general scraping directives that generally perform well, but often cannot harvest all the different metadata from all media websites in a precise way.
 
