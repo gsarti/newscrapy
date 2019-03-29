@@ -30,32 +30,40 @@ def run():
         print(
             """
             Error: Insufficient number of arguments: %d.\n
+
             Use one of the following syntaxes:
+
             * To extract all articles from a newspaper for a specific day:
-                main.py filename newspaper_name day month year
+
+                >> run.py filename newspaper_name day month year
+
             * To extract all article in a specific archive page
               of a newspaper for a specific day:
-                main.py filename newspaper_name day month year page_num
+
+                >> run.py filename newspaper_name day month year page_num
+
             * To extract all articles from a newspaper between two dates:
-                main.py filename newspaper_name day month year day_end month_end year_end
+
+                >> run.py filename newspaper_name day month year day_end month_end year_end
+
             With parameters:
-                filename: The name of the file in which extracted articles will be saved.
-                newspaper_name: The name of the newspaper.
-                   Now supported: 'LaRepubblica'
-                day: The day of extraction.
-                month: The month of extraction.
-                year: The year of extraction.
-                page_num: The number of archive page.
-                day_end: The last day of extraction.
-                month_end: The last month of extraction.
-                year: The last year of extraction.
+                * filename: The name of the file in which extracted articles will be saved.
+                * newspaper_name: The name of the newspaper.
+                    Now supported: 'LaRepubblica'
+                * day: The day of extraction.
+                * month: The month of extraction.
+                * year: The year of extraction.
+                * page_num: The number of archive page.
+                * day_end: The last day of extraction.
+                * month_end: The last month of extraction.
+                * year: The last year of extraction.
             """ % arg_len)
         return
     filename = sys.argv[1]
     newspaper = sys.argv[2]
     extractor = choose_extractor(newspaper)
     if extractor is None:
-        raise ExtractorException('ExtractorException: Selected newspaper' \
+        raise ExtractorException('ExtractorException: Selected newspaper'
                                  'is not supported (yet!)')
     day = int(sys.argv[3])
     month = int(sys.argv[4])
