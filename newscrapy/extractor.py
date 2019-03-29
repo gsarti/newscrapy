@@ -12,9 +12,9 @@ La Repubblica (LaRepubblicaExtractor)
 
 import re
 import abc
+import csv
 from parser import get_page_html
 from datetime import date, timedelta
-import pandas as pd
 from tqdm import tqdm
 from bs4 import BeautifulSoup
 from article import ArticleException, LaRepubblicaArticle
@@ -156,9 +156,14 @@ class Extractor(abc.ABC):
             Produces a csv file in the current folder.
 
         """
-        data = pd.DataFrame.from_records(
-            [article.as_dict() for article in self.articles])
-        data.to_csv(filename)
+        articles = [article.as_dict() for article in self.articles]
+        try:
+            with open(filename, 'w') as f:
+                w = csv.DictWriter(f, articles[0].keys())
+                w.writeheader()
+                w.writerows(articles)
+        except IOError:
+            LOGGER.error("Could not convert to CSV file")
 
 
 class LaRepubblicaExtractor(Extractor):
